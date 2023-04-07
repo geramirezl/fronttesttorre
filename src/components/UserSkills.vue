@@ -1,11 +1,21 @@
 <template>
     <div>
-      <h1>{{ username }}</h1>
-      <ul>
-        <li v-for="skill in skills" :key="skill.id">
-          <b>{{ skill.name }}:</b> {{ skill.proficiency }}
-        </li>
-      </ul>
+
+        <label for="username-input">Enter your Torre username:</label>
+        <input type="text" id="username-input" v-model="username">
+        <button @click="getSkills">Get Skills</button>
+    
+        <h1>{{ username }}</h1>
+        <ul v-if="skills.length">
+        
+            <li v-for="skill in skills" :key="skill.id">
+            <b>{{ skill.name }}:</b> {{ skill.proficiency }}
+            </li>
+
+        </ul>
+
+        <p v-else>No skills found</p>
+
     </div>
   </template>
   
@@ -15,12 +25,15 @@
   export default {
     data() {
       return {
-        username: 'gaenrale',
+        username: '',
         skills: [],
       };
     },
-    mounted() {
-      axios.get('https://cors-anywhere.herokuapp.com/https://torre.bio/api/bios/gaenrale', {
+
+
+    methods: {
+    getSkills() {
+      axios.get(`https://cors-anywhere.herokuapp.com/https://torre.bio/api/bios/${this.username}`, {
         headers: {
           'x-requested-with': 'XMLHttpRequest',
         },
@@ -33,6 +46,7 @@
         .catch(error => {
           console.error(error);
         });
-    },
+    }
+  }
   };
   </script>
