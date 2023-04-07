@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-6">
-                <h2>Finder of User Skills</h2>
+                <h2>Find user skills</h2>
 
                 <label for="username-input" class="form-label">Enter your Torre username:</label>
                 <div class="d-flex justify-content-between align-items-center">
@@ -14,8 +14,14 @@
 
         <div class="row mt-12 " v-if="skills.length">
             <div class="col-md-12 ">
-                <h1>{{personInfo.name}}</h1>
-                <h2>Percent complete user profile: {{personInfo.completion}}</h2>
+                <h2>{{personInfo.name}}</h2>
+                
+                <h3>Percent complete user profile:</h3>
+                <div class="progress col-md-6">
+                    <div class="progress-bar bg-success" role="progressbar" :style="{ width: percent + '%' }" aria-valuenow="{{ percent }}" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="progressbar">{{ percent }}%</div>
+                </div>
+                <h3>Skills:</h3>
+
                 <ul class="list">
                 
                     <li v-for="skill in skills" :key="skill.id" >
@@ -58,6 +64,7 @@
         selectedSkill: {},
         personInfo: {},
         botonBoolean: false,
+        percent: 0,
       };
     },
 
@@ -73,6 +80,7 @@
           this.skills = response.data.strengths;
           this.personInfo=response.data.person;
           this.botonBoolean=true;
+          this.percent= this.personInfo.completion * 100 
           
           
         })

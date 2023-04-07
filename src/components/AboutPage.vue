@@ -23,6 +23,9 @@ Copy code
     <h2>What Else Could I Have Improved if I Had More Time?</h2>
     <p>If I had more time, I could have fixed the CORS issue by exploring the possibility of modifying the CORS access on the server, eliminating the need to rely on external projects to solve the CORS problem. Additionally, I could have created my own API or backend logic and connected it to this frontend. I could have also improved the styling of the webpage.</p>
      <p>Moreover, I could have implemented additional features, such as allowing users to search for specific skills instead of just searching for Torre users.</p> 
+     <p>For the backend logic, I have created a basic relational model to design the database, which is illustrated in the image below:</p>
+     <img src="testTorre.drawio.png" alt="database model">
+     <p>If I had more time, I would have improved the database model and utilized it for the backend logic.</p>
   </div>
  </div>
 </template>
