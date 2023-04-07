@@ -9,24 +9,32 @@
         <ul v-if="skills.length">
         
             <li v-for="skill in skills" :key="skill.id">
-            <b>{{ skill.name }}:</b> {{ skill.proficiency }}
+            <b>{{ skill.name }}:</b> 
+            <button @click="showSkillsInfo(skill)">Show Skills Info</button>
+            
             </li>
 
         </ul>
 
         <p v-else>No skills found</p>
 
+        <SkillInfoModal :selectedSkill="selectedSkill" :show="showModal" @close="closeSkillsInfo" />
+     
+
     </div>
   </template>
   
   <script>
   import axios from 'axios';
+  import SkillInfoModal from './SkillInfoModal.vue';
   
   export default {
     data() {
       return {
         username: '',
         skills: [],
+        showModal: false,
+        selectedSkill: {},
       };
     },
 
@@ -40,13 +48,28 @@
       })
         .then(response => {
           this.skills = response.data.strengths;
-          console.log(this.skills)
-          console.log("exist?")
+          
+          
         })
         .catch(error => {
           console.error(error);
         });
+    },
+
+    
+    showSkillsInfo(skill) {
+      this.selectedSkill = skill;
+      this.showModal = true;
+      
+    },
+    closeSkillsInfo() {
+      this.selectedSkill = {};
+      this.showModal = false;
+      console.log("closes")
     }
-  }
+  },
+  components: {
+    SkillInfoModal,
+  },
   };
   </script>
