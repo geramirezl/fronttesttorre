@@ -41,7 +41,7 @@
 
     methods: {
     getSkills() {
-      axios.get(`https://torre.bio/api/bios/${this.username}`, {
+      axios.get(`https://testtorregaenrale.netlify.app/api/bios/${this.username}`, {
         headers: {
           'x-requested-with': 'XMLHttpRequest',
         },
