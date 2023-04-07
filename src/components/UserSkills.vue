@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-6">
-                <h2>Torre User's Skill List</h2>
+                <h2>Finder of User Skills</h2>
 
                 <label for="username-input" class="form-label">Enter your Torre username:</label>
                 <div class="d-flex justify-content-between align-items-center">
