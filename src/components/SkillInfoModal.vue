@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-o" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h4 class="modal-title">SKILL :<h4 class=" text-r">{{ selectedSkill.name }}</h4></h4>
+                <h4 class="modal-title">SKILL <h4 class=" text-r">{{ selectedSkill.name }}</h4></h4>
                 
                 
             
@@ -30,6 +30,8 @@
   </template>
   
   <script>
+  import 'bootstrap';
+  import 'bootstrap/dist/css/bootstrap.min.css';
   export default {
     props: {
       show: Boolean,

@@ -1,22 +1,39 @@
 <template>
-    <div>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>Torre User's Skill List</h2>
 
-        <label for="username-input">Enter your Torre username:</label>
-        <input type="text" id="username-input" v-model="username">
-        <button @click="getSkills">Get Skills</button>
-    
-        <h1 v-if="skills.length">{{personInfo.name}}</h1>
-        <h2 v-if="skills.length">Percent complete user profile: {{personInfo.completion}}</h2>
-        <ul v-if="skills.length">
+                <label for="username-input" class="form-label">Enter your Torre username:</label>
+                <div class="d-flex justify-content-between align-items-center">
+                    <input type="text" id="username-input" class="form-control" v-model="username">
+                    <button class="btn btn-primary my-3 btn-sm" @click="getSkills">Get Skills</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-12 " v-if="skills.length">
+            <div class="col-md-12 ">
+                <h1>{{personInfo.name}}</h1>
+                <h2>Percent complete user profile: {{personInfo.completion}}</h2>
+                <ul class="list">
+                
+                    <li v-for="skill in skills" :key="skill.id" >
+                        <button class="btn btn-success" @click="showSkillsInfo(skill)">Show Skills Info</button>
+                        <b class="text-secondary" >{{ skill.name }}</b> 
+                        
+                    
+                    </li>
+
+                </ul>
+            </div>
+        </div>
         
-            <li v-for="skill in skills" :key="skill.id">
-            <b>{{ skill.name }}:</b> 
-            <button @click="showSkillsInfo(skill)">Show Skills Info</button>
-            
-            </li>
-
-        </ul>
-        <div v-else><p v-if=botonBoolean>No skills or user found</p></div>
+        <div class="row mt-4" v-else>
+            <div class="col-md-12">
+                <p class="text-danger" v-if=botonBoolean>No skills or user found</p>
+            </div>
+        </div>
         
 
         <SkillInfoModal :selectedSkill="selectedSkill" :show="showModal" @close="closeSkillsInfo" />
@@ -82,3 +99,14 @@
   },
   };
   </script>
+  <style scoped>
+.btn {
+  margin-left: 10px;
+  margin: 10px
+}
+.list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
