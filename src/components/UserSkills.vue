@@ -5,7 +5,8 @@
         <input type="text" id="username-input" v-model="username">
         <button @click="getSkills">Get Skills</button>
     
-        <h1>{{ username }}</h1>
+        <h1 v-if="skills.length">{{personInfo.name}}</h1>
+        <h2 v-if="skills.length">Percent complete user profile: {{personInfo.completion}}</h2>
         <ul v-if="skills.length">
         
             <li v-for="skill in skills" :key="skill.id">
@@ -15,8 +16,8 @@
             </li>
 
         </ul>
-
-        <p v-else>No skills found</p>
+        <div v-else><p v-if=botonBoolean>No skills or user found</p></div>
+        
 
         <SkillInfoModal :selectedSkill="selectedSkill" :show="showModal" @close="closeSkillsInfo" />
      
@@ -35,6 +36,8 @@
         skills: [],
         showModal: false,
         selectedSkill: {},
+        personInfo: {},
+        botonBoolean: false,
       };
     },
 
@@ -48,6 +51,8 @@
       })
         .then(response => {
           this.skills = response.data.strengths;
+          this.personInfo=response.data.person;
+          this.botonBoolean=true;
           
           
         })
