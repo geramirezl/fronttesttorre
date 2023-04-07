@@ -41,7 +41,7 @@
 
     methods: {
     getSkills() {
-      axios.get(`https://cors-anywhere.herokuapp.com/https://torre.bio/api/bios/${this.username}`, {
+      axios.get(`https://torre.bio/api/bios/${this.username}`, {
         headers: {
           'x-requested-with': 'XMLHttpRequest',
         },
@@ -65,7 +65,7 @@
     closeSkillsInfo() {
       this.selectedSkill = {};
       this.showModal = false;
-      console.log("closes")
+      
     }
   },
   components: {
