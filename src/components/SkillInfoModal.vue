@@ -1,13 +1,31 @@
 <template>
-    <div v-if="show">
-      <div class="modal-overlay"></div>
-      <div class="modal">
-        <h2>{{ selectedSkill.name }}</h2>
-        <p>Proficiency: {{ selectedSkill.proficiency }}</p>
-        <p>Weight: {{ selectedSkill.weight }}</p>
-        <p>Recomendations: {{ selectedSkill.recommendations }}</p>
-        <button @click="close">Close</button>
-      </div>
+    <div v-if="show" >
+        <div class="modal-overlay"></div>
+        <div class="modal-dialog modal-o" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title">SKILL :<h4 class=" text-r">{{ selectedSkill.name }}</h4></h4>
+                
+                
+            
+            </div>
+      
+            
+            <div class="modal-body">
+                <hr>
+                <h6>The user has this information related to the skill: </h6>
+                <hr>
+                <p><h7 class="text-r">Proficiency: </h7>{{ selectedSkill.proficiency }}</p>
+                <p><h7 class="text-r">Weight:</h7> {{ selectedSkill.weight }}</p>
+                <p><h7 class="text-r">Recomendations:</h7> {{ selectedSkill.recommendations }}</p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" @click="close">Close</button>
+            </div>
+            </div>
+            
+        </div>
     </div>
   </template>
   
@@ -24,7 +42,6 @@
     },
   };
   </script>
-  
   <style scoped>
   .modal-overlay {
     position: fixed;
@@ -35,14 +52,17 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
   }
-  .modal {
+.modal-o {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #f8f8f8;
     padding: 1em;
     z-index: 101;
   }
-  </style>
+.text-r{
+    color: #0c5c9a
+}
+</style>
   

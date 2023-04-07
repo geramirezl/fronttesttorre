@@ -28,6 +28,9 @@
   <script>
   import axios from 'axios';
   import SkillInfoModal from './SkillInfoModal.vue';
+  import 'bootstrap';
+  import 'bootstrap/dist/css/bootstrap.min.css';
+
   
   export default {
     data() {
@@ -65,6 +68,7 @@
     showSkillsInfo(skill) {
       this.selectedSkill = skill;
       this.showModal = true;
+      console.log(skill)
       
     },
     closeSkillsInfo() {
