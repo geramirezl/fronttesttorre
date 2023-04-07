@@ -85,7 +85,7 @@
     showSkillsInfo(skill) {
       this.selectedSkill = skill;
       this.showModal = true;
-      console.log(skill)
+      
       
     },
     closeSkillsInfo() {
