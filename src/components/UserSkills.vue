@@ -41,10 +41,10 @@
 
     methods: {
     getSkills() {
-      axios.get(`https://cors-anywhere.herokuapp.com/https://torre.bio/api/bios/${this.username}`, {
-        headers: {
-          'x-requested-with': 'XMLHttpRequest',
-        },
+      axios.get('/.netlify/functions/torre', {
+        params:{
+            username: this.username
+        }
       })
         .then(response => {
           this.skills = response.data.strengths;
@@ -65,7 +65,7 @@
     closeSkillsInfo() {
       this.selectedSkill = {};
       this.showModal = false;
-      console.log("closes")
+      
     }
   },
   components: {
