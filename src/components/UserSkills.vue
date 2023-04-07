@@ -41,10 +41,10 @@
 
     methods: {
     getSkills() {
-      axios.get('/.netlify/functions/torre', {
-        params:{
-            username: this.username
-        }
+      axios.get(`https://cors-anywhere.herokuapp.com/https://torre.bio/api/bios/${this.username}`, {
+        headers: {
+          'x-requested-with': 'XMLHttpRequest',
+        },
       })
         .then(response => {
           this.skills = response.data.strengths;
