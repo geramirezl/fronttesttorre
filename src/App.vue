@@ -10,10 +10,13 @@
     <nav>
       <ul>
         <li>
+          <router-link to="/"><img src="../public/icon.jpg" alt="icon"  style="width: 25px; height: 25px;"></router-link>
+        </li>
+        <li>
           <router-link to="/">Home</router-link>
         </li>
         <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/about">Deliverables</router-link>
         </li>
         <li>
           <router-link to="/skills"> Skills Finder </router-link>
